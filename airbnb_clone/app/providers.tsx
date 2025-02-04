@@ -2,7 +2,7 @@
 import { ThemeProvider } from './theme-provider'
 function providers({ children }: { children: React.ReactNode }) {
     return (
-        <><ThemeProvider
+        <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
@@ -10,7 +10,7 @@ function providers({ children }: { children: React.ReactNode }) {
         >
             {children}
         </ThemeProvider>
-        </>
+
     )
 }
 
