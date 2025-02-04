@@ -12,6 +12,7 @@ import UserIcon from "./UserIcon"
 import { Button } from "@/components/ui/button"
 import { LuAlignLeft } from "react-icons/lu"
 import SignOutLink from "./SignOutLink"
+import { SignedIn, SignedOut, SignInButton, SignUpButton } from "@clerk/nextjs"
 
 
 
@@ -29,15 +30,33 @@ function LinksDropDown() {
                 align="start"
                 sideOffset={10}
             >
-                {links.map((link) => {
-                    return (
-                        <DropdownMenuItem key={link.label}>
-                            <Link href={link.href}>
-                                {link.label}
-                            </Link>
-                        </DropdownMenuItem>
-                    )
-                })}
+                <SignedOut>
+                    <DropdownMenuItem>
+                        <SignInButton mode="modal">
+                            Login
+                        </SignInButton>
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem>
+                        <SignUpButton mode="modal">
+                            Register
+                        </SignUpButton>
+                    </DropdownMenuItem>
+                </SignedOut>
+                <SignedIn>
+
+                    {links.map((link) => {
+                        return (
+                            <DropdownMenuItem key={link.label}>
+                                <Link href={link.href}>
+                                    {link.label}
+                                </Link>
+                            </DropdownMenuItem>
+                        )
+                    })}
+                    <DropdownMenuSeparator />
+                    <SignOutLink />
+                </SignedIn>
             </DropdownMenuContent>
         </DropdownMenu>
     )
