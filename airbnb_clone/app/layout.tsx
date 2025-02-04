@@ -24,7 +24,7 @@ export default function RootLayout({
         <body suppressHydrationWarning className={inter.className}>
           <Providers>
             <Navbar />
-            <main className='container py-10'> </main>
+            <main className='container py-10'> {children} </main>
           </Providers>
         </body>
       </html >
