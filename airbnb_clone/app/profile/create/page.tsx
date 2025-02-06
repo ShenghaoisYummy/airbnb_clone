@@ -3,13 +3,7 @@ import { redirect } from "next/navigation"
 import FormContainer from "@/components/form/FormContainer"
 import FormInput from "@/components/form/Forminput"
 import { SubmitButton } from "@/components/form/Buttons"
-
-const createProfileAction = async (prevState: any, formData: FormData) => {
-    'use server'
-    const firstName = formData.get("firstName") as string
-    console.log(firstName)
-    return { message: "Profile created successfully" }
-}
+import { createProfileAction } from "@/app/utils/actions"
 
 function createProfilePage() {
     return (
@@ -19,8 +13,8 @@ function createProfilePage() {
                 <FormContainer action={createProfileAction}>
                     <div className="grid md:grid-cols-2 gap-4">
                         <FormInput type="text" name="firstName" label="First Name" />
-                        <FormInput type="text" name="firstName" label="First Name" />
-                        <FormInput type="text" name="firstName" label="First Name" />
+                        <FormInput type="text" name="lastName" label="Last Name" />
+                        <FormInput type="text" name="username" label="Username" />
                     </div>
                     <SubmitButton text="Create Profile" className="mt-8" />
                 </FormContainer >
