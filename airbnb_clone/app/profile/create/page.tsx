@@ -3,7 +3,7 @@ import { redirect } from "next/navigation"
 import FormContainer from "@/components/form/FormContainer"
 import FormInput from "@/components/form/Forminput"
 import { SubmitButton } from "@/components/form/Buttons"
-import { createProfileAction } from "@/app/utils/actions"
+import { createProfileAction } from "@/utils/actions"
 
 function createProfilePage() {
     return (

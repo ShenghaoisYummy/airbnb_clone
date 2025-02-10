@@ -6,7 +6,7 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { links } from "@/app/utils/links"
+import { links } from "@/utils/links"
 import Link from "next/link"
 import UserIcon from "./UserIcon"
 import { Button } from "@/components/ui/button"
