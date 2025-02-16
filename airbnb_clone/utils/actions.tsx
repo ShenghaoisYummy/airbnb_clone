@@ -5,6 +5,19 @@ import { auth, clerkClient, currentUser } from '@clerk/nextjs/server';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 
+
+const getAuthUser = async () => {
+    // 1. get the user
+    const user = await currentUser()
+    // 2. if no user throw an error
+    if (!user) throw new Error('Please login to create a profile');
+    // 3. if the user has no profile redirect to home page
+    if (!user.privateMetadata.hasProfile) redirect('/');
+    // 4. return the user
+    return user;
+}
+
+
 export const createProfileAction = async (prevState: any, formData: FormData) => {
     try {
 
@@ -53,4 +66,21 @@ export const fetchProfileImage = async () => {
     })
     return profile?.profileImage
 
+}
+
+export const fetchProfile = async () => {
+    // 1. get the user
+    const user = await getAuthUser();
+    // 2. get the profile
+    const profile = await db.profile.findUnique({
+        where: {
+            clerkId: user.id,
+        }
+    })
+    if (!profile) redirect('/profile/create');
+    return profile;
+}
+
+export const updateProfileAction = async (prevState: any, formData: FormData): Promise<{ message: string }> => {
+    return { message: 'Profile updated successfully' }
 }
