@@ -33,3 +33,24 @@ export const createProfileAction = async (prevState: any, formData: FormData) =>
         return { message: error instanceof Error ? error.message : 'An unknown error occurred' }
     }
 }
+
+
+
+export const fetchProfileImage = async () => {
+
+    // 1. get the user, if no user return null
+    const user = await currentUser();
+    if (!user) return null
+
+    // 2. get the profile 
+    const profile = await db.profile.findUnique({
+        where: {
+            clerkId: user.id,
+        },
+        select: {
+            profileImage: true,
+        }
+    })
+    return profile?.profileImage
+
+}
