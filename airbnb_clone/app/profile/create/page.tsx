@@ -4,8 +4,15 @@ import FormContainer from "@/components/form/FormContainer"
 import FormInput from "@/components/form/Forminput"
 import { SubmitButton } from "@/components/form/Buttons"
 import { createProfileAction } from "@/utils/actions"
+import { currentUser } from "@clerk/nextjs/server"
 
-function createProfilePage() {
+async function createProfilePage() {
+
+    // get the current user
+    const user = await currentUser();
+    // if the user has  privatemeta hasProfile return to home page
+    if (user?.privateMetadata?.hasProfile) redirect('/');
+
     return (
         <section>
             <h1 className="text-2xl font-semibold mb-8 capitalize">new user</h1>
