@@ -82,5 +82,20 @@ export const fetchProfile = async () => {
 }
 
 export const updateProfileAction = async (prevState: any, formData: FormData): Promise<{ message: string }> => {
+    // 1. get the user
+    const user = await getAuthUser();
+    // 2. get form raw data
+    const rawData = Object.fromEntries(formData.entries())
+    // 3. validate form data
+    const validatedFields = profileSchema.parse(rawData)
+    // 4. update the profile
+    await db.profile.update({
+        where: {
+            clerkId: user.id,
+        },
+        data: validatedFields,
+    })
+    revalidatePath('/profile')
+    // 5. return the message
     return { message: 'Profile updated successfully' }
 }
