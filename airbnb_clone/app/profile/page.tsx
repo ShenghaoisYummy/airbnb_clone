@@ -5,6 +5,7 @@ import { SubmitButton } from '@/components/form/Buttons';
 import { redirect } from 'next/navigation';
 
 async function ProfilePage() {
+
     // 1. get the profile
     const profile = await fetchProfile();
     // 2. if the profile is not found, redirect to the create profile page
