@@ -12,6 +12,10 @@ module.exports = {
         port: "", // Leave empty unless a specific port is used
         pathname: "/**", // Allows all paths under this hostname (use specific paths if needed)
       },
+      {
+        protocol: "https",
+        hostname: "csyeplrcspvypdfjwsdi.supabase.co",
+      },
     ],
   },
 };
