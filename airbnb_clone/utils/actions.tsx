@@ -1,5 +1,10 @@
 "use server";
-import { imageSchema, profileSchema, validateWithZodSchema } from "./schemas";
+import {
+  imageSchema,
+  profileSchema,
+  propertySchema,
+  validateWithZodSchema,
+} from "./schemas";
 import db from "./db";
 import { auth, clerkClient, currentUser } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
@@ -132,5 +137,25 @@ export const updateProfileImageAction = async (
   } catch (error) {
     console.log(error);
     return { message: "Profile image update failed" };
+  }
+};
+
+export const createPropertyAction = async (
+  prevState: any,
+  formData: FormData
+): Promise<{ message: string }> => {
+  const user = await getAuthUser();
+
+  try {
+    // 1. get the raw data from form
+    const rawData = Object.fromEntries(formData.entries());
+    console.log(rawData);
+    // 2. validate the data
+    const validatedFields = validateWithZodSchema(propertySchema, rawData);
+    return { message: "Property created successfully" };
+    console.log(validatedFields);
+  } catch (error) {
+    console.log(error);
+    return { message: "Property created failed" };
   }
 };
