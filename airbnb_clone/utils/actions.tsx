@@ -115,7 +115,7 @@ export const updateProfileAction = async (
 export const updateProfileImageAction = async (
   prevState: any,
   formData: FormData
-): Promise<{ message: string } | undefined> => {
+): Promise<{ message: string }> => {
   const user = await getAuthUser();
   try {
     // Get image from form data as file
