@@ -22,10 +22,10 @@ A modern, full-stack property rental platform built with Next.js, Prisma, Postgr
 - [x] Environment variables configuration
 
 ### Core Features Implementation
-- [ ] Homepage with property listings
+- [x] Homepage with property listings
 - [ ] Property search and filtering
-- [ ] Property details page
-- [ ] User profile management
+- [x] Property details page
+- [x] User profile management
 - [ ] Property booking system
 - [ ] Payment integration with Stripe
 - [ ] Review system for properties
@@ -33,17 +33,17 @@ A modern, full-stack property rental platform built with Next.js, Prisma, Postgr
 
 ### Admin Features
 - [ ] Admin dashboard
-- [ ] Property management for owners
+- [x] Property management for owners
 - [ ] Bookings management
 - [ ] Analytics and reporting
 
 ### Advanced Features
 - [ ] Interactive maps for property locations
-- [ ] Image gallery for properties
+- [x] Image gallery for properties
 - [ ] Real-time availability calendar
 - [ ] Social sharing functionality
 - [ ] Email notifications
-- [ ] Mobile responsiveness
+- [x] Mobile responsiveness
 
 ### Testing & Deployment
 - [ ] Unit and integration testing
