@@ -3,6 +3,8 @@ import FormContainer from "@/components/form/FormContainer";
 import { createPropertyAction } from "@/utils/actions";
 import { SubmitButton } from "@/components/form/Buttons";
 import PriceInput from "@/components/form/PriceInput";
+import CategoriesInpyt from "@/components/form/CategoriesInpyt";
+
 function CreatePropertyPage() {
   return (
     <section className="py-12">
@@ -12,20 +14,22 @@ function CreatePropertyPage() {
       <div className="border p-8 rounded">
         <h3 className="text-lg mb-4 font-medium capitalize">General Info</h3>
         <FormContainer action={createPropertyAction}>
-          <div className="grid md:grid-cols-2 gap-8 mb-4"></div>
-          <FormInput
-            name="name"
-            type="text"
-            label="Name (20 limit)"
-            defaultValue="Cabin in Latvia"
-          />
-          <FormInput
-            name="tagline"
-            type="text "
-            label="Tagline (30 limit)"
-            defaultValue="Dream Getaway Awaits You Here!"
-          />
-          <PriceInput />
+          <div className="grid md:grid-cols-2 gap-8 mb-4">
+            <FormInput
+              name="name"
+              type="text"
+              label="Name (20 limit)"
+              defaultValue="Cabin in Latvia"
+            />
+            <FormInput
+              name="tagline"
+              type="text "
+              label="Tagline (30 limit)"
+              defaultValue="Dream Getaway Awaits You Here!"
+            />
+            <PriceInput />
+            <CategoriesInpyt />
+          </div>
           <SubmitButton text="Create Property" className="mt-12" />
         </FormContainer>
       </div>
