@@ -4,7 +4,7 @@ import { createPropertyAction } from "@/utils/actions";
 import { SubmitButton } from "@/components/form/Buttons";
 import PriceInput from "@/components/form/PriceInput";
 import CategoriesInpyt from "@/components/form/CategoriesInpyt";
-
+import TextAreaInput from "@/components/form/TextAreaInput";
 function CreatePropertyPage() {
   return (
     <section className="py-12">
@@ -30,6 +30,10 @@ function CreatePropertyPage() {
             <PriceInput />
             <CategoriesInpyt />
           </div>
+          <TextAreaInput
+            name="description"
+            labelText="Description(10 - 1000 words)"
+          />
           <SubmitButton text="Create Property" className="mt-12" />
         </FormContainer>
       </div>
