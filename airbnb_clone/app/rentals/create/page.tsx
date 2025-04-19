@@ -7,6 +7,7 @@ import CategoriesInpyt from "@/components/form/CategoriesInpyt";
 import TextAreaInput from "@/components/form/TextAreaInput";
 import CountriesInput from "@/components/form/CountriesInput";
 import ImageInput from "@/components/form/ImageInput";
+import CounterInput from "@/components/form/CounterInput";
 
 function CreatePropertyPage() {
   return (
@@ -41,6 +42,15 @@ function CreatePropertyPage() {
             <CountriesInput />
             <ImageInput />
           </div>
+          <h3 className="text-lg mt-8 mb-4 font-medium">
+            Accommodation Details
+          </h3>
+
+          <CounterInput detail="Bedrooms" defaultValue={0} />
+          <CounterInput detail="Bathrooms" defaultValue={0} />
+          <CounterInput detail="Guests" defaultValue={0} />
+          <CounterInput detail="Bedrooms" defaultValue={0} />
+
           <SubmitButton text="Create Property" className="mt-12" />
         </FormContainer>
       </div>
