@@ -3,7 +3,7 @@ import FormContainer from "@/components/form/FormContainer";
 import { createPropertyAction } from "@/utils/actions";
 import { SubmitButton } from "@/components/form/Buttons";
 import PriceInput from "@/components/form/PriceInput";
-import CategoriesInpyt from "@/components/form/CategoriesInpyt";
+import CategoriesInpyt from "@/components/form/CategoriesInput";
 import TextAreaInput from "@/components/form/TextAreaInput";
 import CountriesInput from "@/components/form/CountriesInput";
 import ImageInput from "@/components/form/ImageInput";
@@ -46,10 +46,10 @@ function CreatePropertyPage() {
             Accommodation Details
           </h3>
 
-          <CounterInput detail="Bedrooms" defaultValue={0} />
-          <CounterInput detail="Bathrooms" defaultValue={0} />
-          <CounterInput detail="Guests" defaultValue={0} />
-          <CounterInput detail="Bedrooms" defaultValue={0} />
+          <CounterInput detail="guests" defaultValue={0} />
+          <CounterInput detail="bedrooms" defaultValue={0} />
+          <CounterInput detail="beds" defaultValue={0} />
+          <CounterInput detail="baths" defaultValue={0} />
           <h3 className="text-lg mt-10 mb-6 font-medium">Amenities</h3>
           <AmenitiesInput />
           <SubmitButton text="Create Property" className="mt-12" />

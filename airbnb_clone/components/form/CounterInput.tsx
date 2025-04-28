@@ -10,7 +10,7 @@ function CounterInput({
   defaultValue,
 }: {
   detail: string;
-  defaultValue: number;
+  defaultValue?: number;
 }) {
   const [count, setCount] = useState(defaultValue || 0);
 
@@ -24,6 +24,7 @@ function CounterInput({
 
   return (
     <Card className="mb-4">
+      <input type="hidden" name={detail} value={count} />
       <CardHeader className="flex flex-col gap-y-5">
         <div className="flex items-center justify-between flex-wrap">
           <div className="flex flex-col">
