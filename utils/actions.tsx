@@ -9,7 +9,7 @@ import db from "./db";
 import { auth, clerkClient, currentUser } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { uploadImage } from "./supabase";
+import { uploadImage } from "./image-upload";
 
 const getAuthUser = async () => {
   // 1. get the user

@@ -14,7 +14,7 @@ module.exports = {
       },
       {
         protocol: "https",
-        hostname: "csyeplrcspvypdfjwsdi.supabase.co",
+        hostname: "res.cloudinary.com",
       },
     ],
   },
