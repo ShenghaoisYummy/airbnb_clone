@@ -1,5 +1,0 @@
-{
-  "buildCommand": "cd airbnb_clone && npm run build",
-  "outputDirectory": "airbnb_clone/.next",
-  "installCommand": "cd airbnb_clone && npm install"
-}
