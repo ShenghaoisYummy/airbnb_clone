@@ -27,8 +27,19 @@ const nextConfig = {
           },
           {
             key: "Content-Security-Policy",
-            value:
-              "default-src 'self' 'unsafe-inline' 'unsafe-eval' https: data: blob:",
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://clerk.com https://*.clerk.com https://*.clerk.accounts.dev https://js.stripe.com",
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              "img-src 'self' data: https: blob: https://img.clerk.com https://res.cloudinary.com",
+              "font-src 'self' https://fonts.gstatic.com",
+              "connect-src 'self' https://api.clerk.com https://*.clerk.com https://*.clerk.accounts.dev https://api.cloudinary.com https://res.cloudinary.com https://js.stripe.com",
+              "frame-src 'self' https://js.stripe.com https://hooks.stripe.com",
+              "object-src 'none'",
+              "base-uri 'self'",
+              "form-action 'self'",
+              "frame-ancestors 'none'",
+            ].join("; "),
           },
         ],
       },
