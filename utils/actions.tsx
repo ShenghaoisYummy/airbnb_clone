@@ -174,3 +174,40 @@ export const createPropertyAction = async (
   }
   redirect("/");
 };
+
+/**
+ * Fetches properties from the database with optional filtering
+ * @param search - Optional search term to filter by property name or tagline (case-insensitive)
+ * @param category - Optional category to filter properties by
+ * @returns Array of properties ordered by creation date (newest first)
+ */
+
+export const fetchProperties = async ({
+  search = "",
+  category,
+}: {
+  search?: string;
+  category?: string;
+}) => {
+  const properties = await db.property.findMany({
+    where: {
+      category: category,
+      OR: [
+        { name: { contains: search, mode: "insensitive" } },
+        { tagline: { contains: search, mode: "insensitive" } },
+      ],
+    },
+    select: {
+      id: true,
+      name: true,
+      tagline: true,
+      country: true,
+      price: true,
+      image: true,
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
+  return properties;
+};
